@@ -1,0 +1,9 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
