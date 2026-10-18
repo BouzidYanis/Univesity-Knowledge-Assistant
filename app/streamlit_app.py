@@ -42,7 +42,7 @@ if user_input:
     with st.chat_message("assistant"):
         # The spinner is shown while the RAG pipeline runs (retrieval + LLM can take several seconds)
         with st.spinner("Recherche dans les documents..."):
-            try 
+            try :
                 result = answer(user_input)
             except Exception as e:
                 st.error(f"Error during retrieval or generation: {e}")
