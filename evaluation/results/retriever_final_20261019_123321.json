@@ -1,0 +1,5680 @@
+{
+  "label": "final",
+  "date": "2026-10-19T12:33:21",
+  "context": {
+    "dataset": "eval_dataset_v1.jsonl",
+    "split": "test",
+    "questions": 16,
+    "git_commit": "c3ed888-dirty",
+    "embedding_model": "intfloat/multilingual-e5-small",
+    "reranker_model": "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1",
+    "max_k": 10,
+    "configs": {
+      "dense": {
+        "mode": "dense"
+      },
+      "bm25": {
+        "mode": "bm25"
+      },
+      "hybrid": {
+        "mode": "hybrid"
+      },
+      "hybrid+rerank20": {
+        "mode": "hybrid",
+        "use_reranker": true,
+        "candidates": 20
+      },
+      "hybrid+rerank40": {
+        "mode": "hybrid",
+        "use_reranker": true,
+        "candidates": 40
+      }
+    }
+  },
+  "metrics": {
+    "dense": {
+      "global": {
+        "hit@1": 0.688,
+        "hit@3": 0.812,
+        "hit@5": 0.812,
+        "hit@10": 0.938,
+        "mrr": 0.768,
+        "n": 16
+      },
+      "par_categorie": {
+        "factuelle": {
+          "hit@1": 0.5,
+          "hit@3": 0.833,
+          "hit@5": 0.833,
+          "hit@10": 1.0,
+          "mrr": 0.69,
+          "n": 6
+        },
+        "mots_cles": {
+          "hit@1": 0.667,
+          "hit@3": 0.667,
+          "hit@5": 0.667,
+          "hit@10": 0.667,
+          "mrr": 0.667,
+          "n": 3
+        },
+        "multi_sources": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "partielle": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "reformulee": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "suivi": {
+          "hit@1": 0.5,
+          "hit@3": 0.5,
+          "hit@5": 0.5,
+          "hit@10": 1.0,
+          "mrr": 0.571,
+          "n": 2
+        }
+      },
+      "par_document": {
+        "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "Charte_des_Associations_2015-UAPV.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "Guide-des-modalites-de-controle-des-connaissances.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 3
+        },
+        "RI-AU-mars-2025.pdf": {
+          "hit@1": 0.667,
+          "hit@3": 0.667,
+          "hit@5": 0.667,
+          "hit@10": 0.667,
+          "mrr": 0.667,
+          "n": 3
+        },
+        "STATUTS-Avignon-Universite-6-fevrier-2025.pdf": {
+          "hit@1": 0.429,
+          "hit@3": 0.714,
+          "hit@5": 0.714,
+          "hit@10": 1.0,
+          "mrr": 0.612,
+          "n": 7
+        }
+      },
+      "par_difficulte": {
+        "difficile": {
+          "hit@1": 0.667,
+          "hit@3": 0.667,
+          "hit@5": 0.667,
+          "hit@10": 0.667,
+          "mrr": 0.667,
+          "n": 3
+        },
+        "facile": {
+          "hit@1": 0.5,
+          "hit@3": 0.5,
+          "hit@5": 0.5,
+          "hit@10": 1.0,
+          "mrr": 0.571,
+          "n": 2
+        },
+        "moyenne": {
+          "hit@1": 0.727,
+          "hit@3": 0.909,
+          "hit@5": 0.909,
+          "hit@10": 1.0,
+          "mrr": 0.831,
+          "n": 11
+        }
+      },
+      "suivi_brute_vs_reecrite": {
+        "brute": {
+          "hit@1": 0.5,
+          "hit@3": 0.5,
+          "hit@5": 0.5,
+          "hit@10": 1.0,
+          "mrr": 0.571,
+          "n": 2
+        },
+        "reecrite": {
+          "hit@1": 0.5,
+          "hit@3": 0.5,
+          "hit@5": 0.5,
+          "hit@10": 1.0,
+          "mrr": 0.571,
+          "n": 2
+        }
+      },
+      "latence_moyenne_s": 0.02
+    },
+    "bm25": {
+      "global": {
+        "hit@1": 0.688,
+        "hit@3": 0.75,
+        "hit@5": 0.938,
+        "hit@10": 0.938,
+        "mrr": 0.766,
+        "n": 16
+      },
+      "par_categorie": {
+        "factuelle": {
+          "hit@1": 0.667,
+          "hit@3": 0.667,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.75,
+          "n": 6
+        },
+        "mots_cles": {
+          "hit@1": 0.667,
+          "hit@3": 0.667,
+          "hit@5": 0.667,
+          "hit@10": 0.667,
+          "mrr": 0.667,
+          "n": 3
+        },
+        "multi_sources": {
+          "hit@1": 0.5,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.75,
+          "n": 2
+        },
+        "partielle": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "reformulee": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "suivi": {
+          "hit@1": 0.5,
+          "hit@3": 0.5,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.625,
+          "n": 2
+        }
+      },
+      "par_document": {
+        "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "Charte_des_Associations_2015-UAPV.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "Guide-des-modalites-de-controle-des-connaissances.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 3
+        },
+        "RI-AU-mars-2025.pdf": {
+          "hit@1": 0.667,
+          "hit@3": 0.667,
+          "hit@5": 0.667,
+          "hit@10": 0.667,
+          "mrr": 0.667,
+          "n": 3
+        },
+        "STATUTS-Avignon-Universite-6-fevrier-2025.pdf": {
+          "hit@1": 0.429,
+          "hit@3": 0.571,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.607,
+          "n": 7
+        }
+      },
+      "par_difficulte": {
+        "difficile": {
+          "hit@1": 0.667,
+          "hit@3": 0.667,
+          "hit@5": 0.667,
+          "hit@10": 0.667,
+          "mrr": 0.667,
+          "n": 3
+        },
+        "facile": {
+          "hit@1": 0.0,
+          "hit@3": 0.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.25,
+          "n": 2
+        },
+        "moyenne": {
+          "hit@1": 0.818,
+          "hit@3": 0.909,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.886,
+          "n": 11
+        }
+      },
+      "suivi_brute_vs_reecrite": {
+        "brute": {
+          "hit@1": 0.5,
+          "hit@3": 0.5,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.625,
+          "n": 2
+        },
+        "reecrite": {
+          "hit@1": 0.5,
+          "hit@3": 0.5,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.625,
+          "n": 2
+        }
+      },
+      "latence_moyenne_s": 0.002
+    },
+    "hybrid": {
+      "global": {
+        "hit@1": 0.812,
+        "hit@3": 0.812,
+        "hit@5": 0.938,
+        "hit@10": 0.938,
+        "mrr": 0.838,
+        "n": 16
+      },
+      "par_categorie": {
+        "factuelle": {
+          "hit@1": 0.833,
+          "hit@3": 0.833,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.867,
+          "n": 6
+        },
+        "mots_cles": {
+          "hit@1": 0.667,
+          "hit@3": 0.667,
+          "hit@5": 0.667,
+          "hit@10": 0.667,
+          "mrr": 0.667,
+          "n": 3
+        },
+        "multi_sources": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "partielle": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "reformulee": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "suivi": {
+          "hit@1": 0.5,
+          "hit@3": 0.5,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.6,
+          "n": 2
+        }
+      },
+      "par_document": {
+        "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "Charte_des_Associations_2015-UAPV.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "Guide-des-modalites-de-controle-des-connaissances.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 3
+        },
+        "RI-AU-mars-2025.pdf": {
+          "hit@1": 0.667,
+          "hit@3": 0.667,
+          "hit@5": 0.667,
+          "hit@10": 0.667,
+          "mrr": 0.667,
+          "n": 3
+        },
+        "STATUTS-Avignon-Universite-6-fevrier-2025.pdf": {
+          "hit@1": 0.714,
+          "hit@3": 0.714,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.771,
+          "n": 7
+        }
+      },
+      "par_difficulte": {
+        "difficile": {
+          "hit@1": 0.667,
+          "hit@3": 0.667,
+          "hit@5": 0.667,
+          "hit@10": 0.667,
+          "mrr": 0.667,
+          "n": 3
+        },
+        "facile": {
+          "hit@1": 0.5,
+          "hit@3": 0.5,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.6,
+          "n": 2
+        },
+        "moyenne": {
+          "hit@1": 0.909,
+          "hit@3": 0.909,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.927,
+          "n": 11
+        }
+      },
+      "suivi_brute_vs_reecrite": {
+        "brute": {
+          "hit@1": 0.5,
+          "hit@3": 0.5,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.6,
+          "n": 2
+        },
+        "reecrite": {
+          "hit@1": 0.5,
+          "hit@3": 0.5,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.6,
+          "n": 2
+        }
+      },
+      "latence_moyenne_s": 0.018
+    },
+    "hybrid+rerank20": {
+      "global": {
+        "hit@1": 0.688,
+        "hit@3": 1.0,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 0.823,
+        "n": 16
+      },
+      "par_categorie": {
+        "factuelle": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 6
+        },
+        "mots_cles": {
+          "hit@1": 0.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.389,
+          "n": 3
+        },
+        "multi_sources": {
+          "hit@1": 0.5,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.75,
+          "n": 2
+        },
+        "partielle": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "reformulee": {
+          "hit@1": 0.5,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.75,
+          "n": 2
+        },
+        "suivi": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        }
+      },
+      "par_document": {
+        "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf": {
+          "hit@1": 0.5,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.75,
+          "n": 2
+        },
+        "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "Charte_des_Associations_2015-UAPV.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "Guide-des-modalites-de-controle-des-connaissances.pdf": {
+          "hit@1": 0.667,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.778,
+          "n": 3
+        },
+        "RI-AU-mars-2025.pdf": {
+          "hit@1": 0.333,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.611,
+          "n": 3
+        },
+        "STATUTS-Avignon-Universite-6-fevrier-2025.pdf": {
+          "hit@1": 0.857,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.929,
+          "n": 7
+        }
+      },
+      "par_difficulte": {
+        "difficile": {
+          "hit@1": 0.333,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.556,
+          "n": 3
+        },
+        "facile": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "moyenne": {
+          "hit@1": 0.727,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.864,
+          "n": 11
+        }
+      },
+      "suivi_brute_vs_reecrite": {
+        "brute": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "reecrite": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        }
+      },
+      "latence_moyenne_s": 0.91
+    },
+    "hybrid+rerank40": {
+      "global": {
+        "hit@1": 0.688,
+        "hit@3": 0.938,
+        "hit@5": 1.0,
+        "hit@10": 1.0,
+        "mrr": 0.818,
+        "n": 16
+      },
+      "par_categorie": {
+        "factuelle": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 6
+        },
+        "mots_cles": {
+          "hit@1": 0.0,
+          "hit@3": 0.667,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.361,
+          "n": 3
+        },
+        "multi_sources": {
+          "hit@1": 0.5,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.75,
+          "n": 2
+        },
+        "partielle": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "reformulee": {
+          "hit@1": 0.5,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.75,
+          "n": 2
+        },
+        "suivi": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        }
+      },
+      "par_document": {
+        "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf": {
+          "hit@1": 0.5,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.75,
+          "n": 2
+        },
+        "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "Charte_des_Associations_2015-UAPV.pdf": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 1
+        },
+        "Guide-des-modalites-de-controle-des-connaissances.pdf": {
+          "hit@1": 0.667,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.778,
+          "n": 3
+        },
+        "RI-AU-mars-2025.pdf": {
+          "hit@1": 0.333,
+          "hit@3": 0.667,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.583,
+          "n": 3
+        },
+        "STATUTS-Avignon-Universite-6-fevrier-2025.pdf": {
+          "hit@1": 0.857,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.929,
+          "n": 7
+        }
+      },
+      "par_difficulte": {
+        "difficile": {
+          "hit@1": 0.333,
+          "hit@3": 0.667,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.528,
+          "n": 3
+        },
+        "facile": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "moyenne": {
+          "hit@1": 0.727,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 0.864,
+          "n": 11
+        }
+      },
+      "suivi_brute_vs_reecrite": {
+        "brute": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        },
+        "reecrite": {
+          "hit@1": 1.0,
+          "hit@3": 1.0,
+          "hit@5": 1.0,
+          "hit@10": 1.0,
+          "mrr": 1.0,
+          "n": 2
+        }
+      },
+      "latence_moyenne_s": 1.61
+    }
+  },
+  "rows": {
+    "dense": [
+      {
+        "id": "fact-president-mandat",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "facile",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            20
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 0,
+          "hit@10": 1,
+          "mrr": 0.14285714285714285
+        },
+        "seconds": 0.021
+      },
+      {
+        "id": "fact-siege",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "facile",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Où se trouve le siège d'Avignon Université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            2
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            2
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            13
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            3
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.024
+      },
+      {
+        "id": "fact-bureau-role",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quel est le rôle du bureau du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            11
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.5
+        },
+        "seconds": 0.023
+      },
+      {
+        "id": "kw-article-23",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "difficile",
+        "documents": [
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Que dit l'article 23 du règlement intérieur ?",
+        "expected": [
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            17
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            11
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            25
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            4
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            19
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 0,
+          "hit@10": 0,
+          "mrr": 0.0
+        },
+        "seconds": 0.025
+      },
+      {
+        "id": "kw-30-etcs",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "difficile",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "30 ETCS",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            6
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            18
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            13
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.02
+      },
+      {
+        "id": "kw-article-14",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "moyenne",
+        "documents": [
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Que prévoit l'article 14 du règlement intérieur sur le stationnement ?",
+        "expected": [
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            17
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            17
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.023
+      },
+      {
+        "id": "ref-bio-cantine",
+        "variant": "directe",
+        "category": "reformulee",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Quelle part de nourriture bio est servie à la cantine ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.021
+      },
+      {
+        "id": "ref-cours-papier",
+        "variant": "directe",
+        "category": "reformulee",
+        "difficulty": "difficile",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "Je n'arrive pas à me connecter à l'ENT depuis chez moi, est-ce que je peux avoir les cours en papier ?",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            8
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            4
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            9
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.02
+      },
+      {
+        "id": "multi-domiciliation",
+        "variant": "directe",
+        "category": "multi_sources",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte_des_Associations_2015-UAPV.pdf",
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Comment une association étudiante peut-elle être domiciliée à l'université ?",
+        "expected": [
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            1
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            5
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            3
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "multi-presidence-conseils",
+        "variant": "directe",
+        "category": "multi_sources",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Qui préside le conseil d'administration et le conseil académique ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            11
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            17
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "part-reinitialiser-mdp",
+        "variant": "directe",
+        "category": "partielle",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf"
+        ],
+        "query": "Puis-je prêter mon mot de passe à un ami et comment réinitialiser mon mot de passe en ligne ?",
+        "expected": [
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            2
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "suivi-bouteilles",
+        "variant": "reecrite",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Et pour les bouteilles en plastique ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            4
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            17
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.019
+      },
+      {
+        "id": "suivi-bouteilles",
+        "variant": "brute",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Et pour les bouteilles en plastique ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            4
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            17
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.017
+      },
+      {
+        "id": "suivi-changement-sujet",
+        "variant": "reecrite",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            20
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 0,
+          "hit@10": 1,
+          "mrr": 0.14285714285714285
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "suivi-changement-sujet",
+        "variant": "brute",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            20
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 0,
+          "hit@10": 1,
+          "mrr": 0.14285714285714285
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "syn-agent-comptable",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Qui nomme l'agent comptable de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            13
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "syn-nomination-dgs",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Comment est nommé le directeur général des services ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            11
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            17
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.5
+        },
+        "seconds": 0.016
+      },
+      {
+        "id": "syn-stage-etranger",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "Si je suis en stage à l'étranger et que je veux rentrer en France pendant le confinement, que dois-je faire ?",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            8
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            4
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.018
+      }
+    ],
+    "bm25": [
+      {
+        "id": "fact-president-mandat",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "facile",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            11
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            23
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.25
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "fact-siege",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "facile",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Où se trouve le siège d'Avignon Université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            2
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            18
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.25
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "fact-bureau-role",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quel est le rôle du bureau du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            20
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            1
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            4
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.003
+      },
+      {
+        "id": "kw-article-23",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "difficile",
+        "documents": [
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Que dit l'article 23 du règlement intérieur ?",
+        "expected": [
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            11
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            23
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            25
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            5
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            4
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            18
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 0,
+          "hit@10": 0,
+          "mrr": 0.0
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "kw-30-etcs",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "difficile",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "30 ETCS",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            6
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            18
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            9
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "kw-article-14",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "moyenne",
+        "documents": [
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Que prévoit l'article 14 du règlement intérieur sur le stationnement ?",
+        "expected": [
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            25
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            5
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            4
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            18
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "ref-bio-cantine",
+        "variant": "directe",
+        "category": "reformulee",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Quelle part de nourriture bio est servie à la cantine ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            5
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            8
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            6
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            4
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            23
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "ref-cours-papier",
+        "variant": "directe",
+        "category": "reformulee",
+        "difficulty": "difficile",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "Je n'arrive pas à me connecter à l'ENT depuis chez moi, est-ce que je peux avoir les cours en papier ?",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "multi-domiciliation",
+        "variant": "directe",
+        "category": "multi_sources",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte_des_Associations_2015-UAPV.pdf",
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Comment une association étudiante peut-elle être domiciliée à l'université ?",
+        "expected": [
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            1
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            5
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "multi-presidence-conseils",
+        "variant": "directe",
+        "category": "multi_sources",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Qui préside le conseil d'administration et le conseil académique ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            4
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            17
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.5
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "part-reinitialiser-mdp",
+        "variant": "directe",
+        "category": "partielle",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf"
+        ],
+        "query": "Puis-je prêter mon mot de passe à un ami et comment réinitialiser mon mot de passe en ligne ?",
+        "expected": [
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            5
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            24
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            4
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "suivi-bouteilles",
+        "variant": "reecrite",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Et pour les bouteilles en plastique ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "suivi-bouteilles",
+        "variant": "brute",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Et pour les bouteilles en plastique ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "suivi-changement-sujet",
+        "variant": "reecrite",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            11
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            23
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.25
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "suivi-changement-sujet",
+        "variant": "brute",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            11
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            23
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.25
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "syn-agent-comptable",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Qui nomme l'agent comptable de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            20
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "syn-nomination-dgs",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Comment est nommé le directeur général des services ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            18
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            25
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.002
+      },
+      {
+        "id": "syn-stage-etranger",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "Si je suis en stage à l'étranger et que je veux rentrer en France pendant le confinement, que dois-je faire ?",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            4
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            8
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            5
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.002
+      }
+    ],
+    "hybrid": [
+      {
+        "id": "fact-president-mandat",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "facile",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            20
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.2
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "fact-siege",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "facile",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Où se trouve le siège d'Avignon Université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            2
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            2
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            13
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            3
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "fact-bureau-role",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quel est le rôle du bureau du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.019
+      },
+      {
+        "id": "kw-article-23",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "difficile",
+        "documents": [
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Que dit l'article 23 du règlement intérieur ?",
+        "expected": [
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            11
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            17
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            25
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            23
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            4
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            18
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 0,
+          "hit@10": 0,
+          "mrr": 0.0
+        },
+        "seconds": 0.017
+      },
+      {
+        "id": "kw-30-etcs",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "difficile",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "30 ETCS",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            6
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            18
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.013
+      },
+      {
+        "id": "kw-article-14",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "moyenne",
+        "documents": [
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Que prévoit l'article 14 du règlement intérieur sur le stationnement ?",
+        "expected": [
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            4
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            25
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "ref-bio-cantine",
+        "variant": "directe",
+        "category": "reformulee",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Quelle part de nourriture bio est servie à la cantine ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            5
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            8
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            6
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "ref-cours-papier",
+        "variant": "directe",
+        "category": "reformulee",
+        "difficulty": "difficile",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "Je n'arrive pas à me connecter à l'ENT depuis chez moi, est-ce que je peux avoir les cours en papier ?",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            8
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            7
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.019
+      },
+      {
+        "id": "multi-domiciliation",
+        "variant": "directe",
+        "category": "multi_sources",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte_des_Associations_2015-UAPV.pdf",
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Comment une association étudiante peut-elle être domiciliée à l'université ?",
+        "expected": [
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            1
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            5
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            3
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "multi-presidence-conseils",
+        "variant": "directe",
+        "category": "multi_sources",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Qui préside le conseil d'administration et le conseil académique ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            17
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            4
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.019
+      },
+      {
+        "id": "part-reinitialiser-mdp",
+        "variant": "directe",
+        "category": "partielle",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf"
+        ],
+        "query": "Puis-je prêter mon mot de passe à un ami et comment réinitialiser mon mot de passe en ligne ?",
+        "expected": [
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.019
+      },
+      {
+        "id": "suivi-bouteilles",
+        "variant": "reecrite",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Et pour les bouteilles en plastique ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            4
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            17
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.017
+      },
+      {
+        "id": "suivi-bouteilles",
+        "variant": "brute",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Et pour les bouteilles en plastique ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            4
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            17
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.017
+      },
+      {
+        "id": "suivi-changement-sujet",
+        "variant": "reecrite",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            20
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.2
+        },
+        "seconds": 0.021
+      },
+      {
+        "id": "suivi-changement-sujet",
+        "variant": "brute",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            20
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.2
+        },
+        "seconds": 0.025
+      },
+      {
+        "id": "syn-agent-comptable",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Qui nomme l'agent comptable de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            13
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.019
+      },
+      {
+        "id": "syn-nomination-dgs",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Comment est nommé le directeur général des services ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            18
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.018
+      },
+      {
+        "id": "syn-stage-etranger",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "Si je suis en stage à l'étranger et que je veux rentrer en France pendant le confinement, que dois-je faire ?",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            8
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            4
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            5
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.02
+      }
+    ],
+    "hybrid+rerank20": [
+      {
+        "id": "fact-president-mandat",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "facile",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            9
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.93
+      },
+      {
+        "id": "fact-siege",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "facile",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Où se trouve le siège d'Avignon Université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            2
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            2
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            1
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            13
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.913
+      },
+      {
+        "id": "fact-bureau-role",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quel est le rôle du bureau du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            11
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.921
+      },
+      {
+        "id": "kw-article-23",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "difficile",
+        "documents": [
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Que dit l'article 23 du règlement intérieur ?",
+        "expected": [
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            23
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            11
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            17
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            5
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            18
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.3333333333333333
+        },
+        "seconds": 0.935
+      },
+      {
+        "id": "kw-30-etcs",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "difficile",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "30 ETCS",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            18
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            13
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.3333333333333333
+        },
+        "seconds": 0.846
+      },
+      {
+        "id": "kw-article-14",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "moyenne",
+        "documents": [
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Que prévoit l'article 14 du règlement intérieur sur le stationnement ?",
+        "expected": [
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            5
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            17
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            17
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.5
+        },
+        "seconds": 0.949
+      },
+      {
+        "id": "ref-bio-cantine",
+        "variant": "directe",
+        "category": "reformulee",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Quelle part de nourriture bio est servie à la cantine ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            3
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.5
+        },
+        "seconds": 0.986
+      },
+      {
+        "id": "ref-cours-papier",
+        "variant": "directe",
+        "category": "reformulee",
+        "difficulty": "difficile",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "Je n'arrive pas à me connecter à l'ENT depuis chez moi, est-ce que je peux avoir les cours en papier ?",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            9
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            8
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.911
+      },
+      {
+        "id": "multi-domiciliation",
+        "variant": "directe",
+        "category": "multi_sources",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte_des_Associations_2015-UAPV.pdf",
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Comment une association étudiante peut-elle être domiciliée à l'université ?",
+        "expected": [
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            3
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            5
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.878
+      },
+      {
+        "id": "multi-presidence-conseils",
+        "variant": "directe",
+        "category": "multi_sources",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Qui préside le conseil d'administration et le conseil académique ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            4
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.5
+        },
+        "seconds": 0.866
+      },
+      {
+        "id": "part-reinitialiser-mdp",
+        "variant": "directe",
+        "category": "partielle",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf"
+        ],
+        "query": "Puis-je prêter mon mot de passe à un ami et comment réinitialiser mon mot de passe en ligne ?",
+        "expected": [
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            18
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            2
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.919
+      },
+      {
+        "id": "suivi-bouteilles",
+        "variant": "reecrite",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Et pour les bouteilles en plastique ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            20
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.911
+      },
+      {
+        "id": "suivi-bouteilles",
+        "variant": "brute",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Et pour les bouteilles en plastique ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            20
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.944
+      },
+      {
+        "id": "suivi-changement-sujet",
+        "variant": "reecrite",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            9
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.96
+      },
+      {
+        "id": "suivi-changement-sujet",
+        "variant": "brute",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            9
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.863
+      },
+      {
+        "id": "syn-agent-comptable",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Qui nomme l'agent comptable de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.902
+      },
+      {
+        "id": "syn-nomination-dgs",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Comment est nommé le directeur général des services ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            18
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.748
+      },
+      {
+        "id": "syn-stage-etranger",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "Si je suis en stage à l'étranger et que je veux rentrer en France pendant le confinement, que dois-je faire ?",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            8
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            4
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 0.985
+      }
+    ],
+    "hybrid+rerank40": [
+      {
+        "id": "fact-president-mandat",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "facile",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            9
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.558
+      },
+      {
+        "id": "fact-siege",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "facile",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Où se trouve le siège d'Avignon Université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            2
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            2
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            4
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.521
+      },
+      {
+        "id": "fact-bureau-role",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quel est le rôle du bureau du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            11
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            17
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.558
+      },
+      {
+        "id": "kw-article-23",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "difficile",
+        "documents": [
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Que dit l'article 23 du règlement intérieur ?",
+        "expected": [
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            23
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            11
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            5
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            17
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 0,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.25
+        },
+        "seconds": 1.659
+      },
+      {
+        "id": "kw-30-etcs",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "difficile",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "30 ETCS",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            18
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            6
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            13
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            19
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.3333333333333333
+        },
+        "seconds": 1.445
+      },
+      {
+        "id": "kw-article-14",
+        "variant": "directe",
+        "category": "mots_cles",
+        "difficulty": "moyenne",
+        "documents": [
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Que prévoit l'article 14 du règlement intérieur sur le stationnement ?",
+        "expected": [
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ]
+        ],
+        "retrieved": [
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            13
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            6
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.5
+        },
+        "seconds": 1.543
+      },
+      {
+        "id": "ref-bio-cantine",
+        "variant": "directe",
+        "category": "reformulee",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Quelle part de nourriture bio est servie à la cantine ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            20
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.5
+        },
+        "seconds": 1.691
+      },
+      {
+        "id": "ref-cours-papier",
+        "variant": "directe",
+        "category": "reformulee",
+        "difficulty": "difficile",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "Je n'arrive pas à me connecter à l'ENT depuis chez moi, est-ce que je peux avoir les cours en papier ?",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            9
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            8
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            22
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            2
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.567
+      },
+      {
+        "id": "multi-domiciliation",
+        "variant": "directe",
+        "category": "multi_sources",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte_des_Associations_2015-UAPV.pdf",
+          "RI-AU-mars-2025.pdf"
+        ],
+        "query": "Comment une association étudiante peut-elle être domiciliée à l'université ?",
+        "expected": [
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            2
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            3
+          ],
+          [
+            "Charte_des_Associations_2015-UAPV.pdf",
+            5
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            12
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.572
+      },
+      {
+        "id": "multi-presidence-conseils",
+        "variant": "directe",
+        "category": "multi_sources",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Qui préside le conseil d'administration et le conseil académique ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            8
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            14
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            12
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            4
+          ]
+        ],
+        "metrics": {
+          "hit@1": 0,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 0.5
+        },
+        "seconds": 1.588
+      },
+      {
+        "id": "part-reinitialiser-mdp",
+        "variant": "directe",
+        "category": "partielle",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf"
+        ],
+        "query": "Puis-je prêter mon mot de passe à un ami et comment réinitialiser mon mot de passe en ligne ?",
+        "expected": [
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            3
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            18
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            16
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            2
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.747
+      },
+      {
+        "id": "suivi-bouteilles",
+        "variant": "reecrite",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Et pour les bouteilles en plastique ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            6
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            20
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.725
+      },
+      {
+        "id": "suivi-bouteilles",
+        "variant": "brute",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf"
+        ],
+        "query": "Et pour les bouteilles en plastique ?",
+        "expected": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ]
+        ],
+        "retrieved": [
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            1
+          ],
+          [
+            "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf",
+            2
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            21
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            6
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            14
+          ],
+          [
+            "Charte-pour-lusage-du-SI-et-des-services-numériques-adoptée-en-CA-le-26-septembre-2017.pdf",
+            1
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            20
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.696
+      },
+      {
+        "id": "suivi-changement-sujet",
+        "variant": "reecrite",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            9
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.56
+      },
+      {
+        "id": "suivi-changement-sujet",
+        "variant": "brute",
+        "category": "suivi",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Quelle est la durée du mandat du président de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            15
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            16
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            9
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.557
+      },
+      {
+        "id": "syn-agent-comptable",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Qui nomme l'agent comptable de l'université ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            19
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            7
+          ],
+          [
+            "RI-AU-mars-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.631
+      },
+      {
+        "id": "syn-nomination-dgs",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "STATUTS-Avignon-Universite-6-fevrier-2025.pdf"
+        ],
+        "query": "Comment est nommé le directeur général des services ?",
+        "expected": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ]
+        ],
+        "retrieved": [
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            5
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            6
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            10
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            18
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            19
+          ],
+          [
+            "STATUTS-Avignon-Universite-6-fevrier-2025.pdf",
+            9
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.568
+      },
+      {
+        "id": "syn-stage-etranger",
+        "variant": "directe",
+        "category": "factuelle",
+        "difficulty": "moyenne",
+        "documents": [
+          "Guide-des-modalites-de-controle-des-connaissances.pdf"
+        ],
+        "query": "Si je suis en stage à l'étranger et que je veux rentrer en France pendant le confinement, que dois-je faire ?",
+        "expected": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ]
+        ],
+        "retrieved": [
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            7
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            8
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            3
+          ],
+          [
+            "Guide-des-modalites-de-controle-des-connaissances.pdf",
+            4
+          ]
+        ],
+        "metrics": {
+          "hit@1": 1,
+          "hit@3": 1,
+          "hit@5": 1,
+          "hit@10": 1,
+          "mrr": 1.0
+        },
+        "seconds": 1.831
+      }
+    ]
+  }
+}

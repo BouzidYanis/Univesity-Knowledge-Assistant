@@ -91,7 +91,7 @@ def build_context(results):
     Returns:
         tuple: (context, sources)
             context (str): The numbered excerpts, e.g. "[1] (file.pdf, p.3)\n<text>".
-            sources (list): One dict per excerpt (number, file, page, score) to display the citations.
+            sources (list): One dict per excerpt (number, file, page, scores, text) to display the citations.
     """
     excerpts = []
     sources = []
@@ -111,6 +111,9 @@ def build_context(results):
             "page": page,
             "score": result.get("score"),
             "rerank_score": result.get("rerank_score"),  # None when the reranker is not used
+            # The excerpt itself: needed to check afterwards that the answer is supported by it (evaluation).
+            # Not exposed by the API (the Source schema ignores it)
+            "text": result.get("text", "").strip(),
         })
 
     context = "\n\n---\n\n".join(excerpts)

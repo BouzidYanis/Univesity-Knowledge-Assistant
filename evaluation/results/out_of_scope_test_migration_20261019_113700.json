@@ -1,0 +1,81 @@
+{
+  "label": "test_migration",
+  "metrics": {
+    "dataset": "v1, split=test, 4 questions",
+    "refus_corrects": "1/1",
+    "faux_refus": "0/2",
+    "conversation_ok": "1/1",
+    "routeur_correct": "4/4",
+    "latence_moyenne_s": 4.6
+  },
+  "rows": [
+    {
+      "id": "hd-football",
+      "category": "hors_domaine",
+      "question": "Qui a gagné la coupe du monde 2018 ?",
+      "expected_behavior": "refus",
+      "expected_type": "hors_domaine",
+      "type": "hors_domaine",
+      "rewritten_question": "Qui a gagné la coupe du monde 2018 ?",
+      "refusal": true,
+      "answer": "Je suis l'assistant des documents officiels de l'université et je réponds uniquement à partir de les documents officiels d'Avignon Université : statuts, règlement intérieur, chartes (associations, usage du système d'information, alimentation responsable) et guide des modalités de contrôle des connaissances. Je ne peux pas répondre à cette question.",
+      "reference_answer": "",
+      "sources": [],
+      "seconds": 0.6
+    },
+    {
+      "id": "conv-capacites",
+      "category": "conversation",
+      "question": "Que sais-tu faire ?",
+      "expected_behavior": "conversation",
+      "expected_type": "conversation",
+      "type": "conversation",
+      "rewritten_question": "Que sais-tu faire ?",
+      "refusal": false,
+      "answer": "Je peux vous aider à comprendre et à appliquer les règles et procédures d’Avignon Université, comme les statuts, le règlement intérieur, les chartes et le guide des modalités de contrôle des connaissances. N’hésitez pas à me poser vos questions !",
+      "reference_answer": "",
+      "sources": [],
+      "seconds": 1.1
+    },
+    {
+      "id": "suivi-bouteilles",
+      "category": "suivi",
+      "question": "Et pour les bouteilles en plastique ?",
+      "expected_behavior": "reponse",
+      "expected_type": "documentation",
+      "type": "documentation",
+      "rewritten_question": "Et pour les bouteilles en plastique ?",
+      "refusal": false,
+      "answer": "La charte d’alimentation responsable d’Avignon Université proscrit l’usage des bouteilles plastiques : elle encourage l’utilisation de l’eau potable et la préférence pour les bouteilles en verre consignées. [1] [2]",
+      "reference_answer": "La charte demande de proscrire les bouteilles plastiques (eau potable, bouteilles en verre consignées).",
+      "sources": [
+        "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf p.1",
+        "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf p.1",
+        "Charte-alimentation-responsable-AU-CA-10.09.2024.pdf p.2",
+        "RI-AU-mars-2025.pdf p.21",
+        "RI-AU-mars-2025.pdf p.14"
+      ],
+      "seconds": 13.8
+    },
+    {
+      "id": "suivi-changement-sujet",
+      "category": "suivi",
+      "question": "Quelle est la durée du mandat du président de l'université ?",
+      "expected_behavior": "reponse",
+      "expected_type": "documentation",
+      "type": "documentation",
+      "rewritten_question": "Quelle est la durée du mandat du président de l'université?",
+      "refusal": false,
+      "answer": "Le mandat du président de l’université dure **quatre ans** et est renouvelable une fois. [1]",
+      "reference_answer": "Quatre ans, renouvelable une fois.",
+      "sources": [
+        "STATUTS-Avignon-Universite-6-fevrier-2025.pdf p.6",
+        "STATUTS-Avignon-Universite-6-fevrier-2025.pdf p.9",
+        "STATUTS-Avignon-Universite-6-fevrier-2025.pdf p.15",
+        "STATUTS-Avignon-Universite-6-fevrier-2025.pdf p.16",
+        "STATUTS-Avignon-Universite-6-fevrier-2025.pdf p.15"
+      ],
+      "seconds": 2.8
+    }
+  ]
+}

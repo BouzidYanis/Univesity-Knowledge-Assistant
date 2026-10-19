@@ -9,6 +9,8 @@ import torch
 
 client = QdrantClient(url="http://localhost:6333")
 
+EMBEDDING_MODEL_NAME = "intfloat/multilingual-e5-small"
+
 _embedding_model = None
 _sparse_model = None
 
@@ -23,7 +25,7 @@ def get_embedding_model():
     if _embedding_model is None:
         #the embedding_size is 384
         _embedding_model = HuggingFaceEmbeddings(
-            model_name="intfloat/multilingual-e5-small",
+            model_name=EMBEDDING_MODEL_NAME,
             model_kwargs={"device": "cuda" if torch.cuda.is_available() else "cpu"}
         )
     return _embedding_model
@@ -140,6 +142,9 @@ def search_in_qdrant(query, collection_name="knowledge_base", top_k=5, mode="hyb
         mode (str): The search mode, either "hybrid" (dense + sparse), "dense" (only dense vectors), or "bm25" (only sparse vectors).
     Returns:
         list: A list of search results with their metadata and text.
+
+    Raises:
+        Exception: The Qdrant error if the search fails (e.g. Qdrant down, missing collection).
     """
     if mode not in ("hybrid", "dense", "bm25"):
         raise ValueError("Invalid mode. Please choose 'hybrid', 'dense', or 'bm25'.")
@@ -179,7 +184,9 @@ def search_in_qdrant(query, collection_name="knowledge_base", top_k=5, mode="hyb
                     ),
                 ],
                 query=models.FusionQuery(fusion=models.Fusion.RRF),
-                limit=top_k
+                # All the fused candidates (at most 2 x prefetch_limit): the cut to top_k is done after the
+                # tie-break below, otherwise Qdrant picks arbitrarily between ex aequo at the limit
+                limit=2 * prefetch_limit
             )
 
         # Extract relevant information from the search results
@@ -192,9 +199,13 @@ def search_in_qdrant(query, collection_name="knowledge_base", top_k=5, mode="hyb
                 "metadata": {k: v for k, v in payload.items() if k != "text"},
                 "text": payload.get("text", "")
             })
-        
-        return results
+
+        # RRF gives many ex aequo (1st in one list + 2nd in the other = 2nd + 1st) that Qdrant returns in any order:
+        # break the ties by id so that the same question always gets the same ranking
+        results.sort(key=lambda r: (-r["score"], str(r["id"])))
+        return results[:top_k]
 
     except Exception as e:
+        # Re-raise: a Qdrant failure must not look like "no relevant document" to the caller
         print(f"Error searching in Qdrant: {e}")
-        return []
+        raise

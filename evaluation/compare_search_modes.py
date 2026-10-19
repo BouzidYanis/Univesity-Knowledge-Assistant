@@ -1,77 +1,55 @@
 """
-Palier 5 - Compare the 3 search modes (dense, bm25, hybrid) on keyword and semantic questions.
+Compare the 3 search modes (dense, bm25, hybrid) on the "keywords" and "reformulated" questions of the dataset.
 
 Run from the project root:
-    python -m evaluation.compare_search_modes
+    python -m evaluation.compare_search_modes [--split dev|test]
 """
-from src.embedding import search_in_qdrant, build_sparse_query
+import argparse
+
+from evaluation.dataset import load_dataset
+from src.embedding import build_sparse_query, search_in_qdrant
 
 MODES = ["dense", "bm25", "hybrid"]
 TOP_K = 3
 
-# Each question has the chunks expected in the results: (start of the file name, set of pages, numbered from 1)
-QUESTIONS = [
-    # --- "keywords" questions: article numbers, figures, acronyms, rare words
-    {"type": "mots-clés", "question": "Que dit l'article 23 du règlement intérieur ?",
-     "expected": [("RI-AU", {16})]},
-    {"type": "mots-clés", "question": "Article 11 accès aux locaux",
-     "expected": [("RI-AU", {11})]},
-    {"type": "mots-clés", "question": "Loi EgAlim",
-     "expected": [("Charte-alimentation", {1})]},
-    {"type": "mots-clés", "question": "60% de produits durables",
-     "expected": [("Charte-alimentation", {1})]},
-    {"type": "mots-clés", "question": "Quel est le rôle de la CFVU pour les associations ?",
-     "expected": [("Charte_des_Associations", {2, 3, 4})]},
-    {"type": "mots-clés", "question": "30 ETCS",
-     "expected": [("Guide-des-modalites", {6})]},
-
-    # --- "meaning" questions: reformulated, without the words of the documents
-    {"type": "sens", "question": "Est-ce que je peux donner mon mot de passe à un ami ?",
-     "expected": [("Charte-pour-lusage", {1, 3})]},
-    {"type": "sens", "question": "Quelle part de nourriture bio est servie à la cantine ?",
-     "expected": [("Charte-alimentation", {1})]},
-    {"type": "sens", "question": "Que faire si un enseignant se moque de moi sans arrêt ?",
-     "expected": [("RI-AU", {3, 6, 17})]},
-    {"type": "sens", "question": "Comment une association peut-elle obtenir une salle sur le campus ?",
-     "expected": [("Charte_des_Associations", {2, 3})]},
-    {"type": "sens", "question": "Qui peut présider une association étudiante ?",
-     "expected": [("Charte_des_Associations", {1, 2})]},
-]
+# Dataset category -> label of the group: what BM25 must find / what the dense search must find
+GROUPS = {"mots_cles": "mots-clés", "reformulee": "sens"}
 
 
-def is_expected(result, expected):
-    """True if the result is one of the expected (file, page) chunks."""
+def is_expected(result, expected_sources):
+    """True if the result is one of the expected (file, page) passages."""
     source_file = result["metadata"].get("source_file", "")
-    page = result["metadata"].get("page", -1) + 1  # PyMuPDF counts pages from 0
-    return any(source_file.startswith(prefix) and page in pages for prefix, pages in expected)
+    page = result["metadata"].get("page", -1) + 1  # PyMuPDF counts pages from 0, the dataset from 1
+    return any(source_file == source.file and page in source.pages for source in expected_sources)
 
 
-def compare_modes():
-    """Print the top-k of each mode side by side and count the hits per mode and question type."""
-    hits = {(mode, q_type): 0 for mode in MODES for q_type in ("mots-clés", "sens")}
-    totals = {"mots-clés": 0, "sens": 0}
+def compare_modes(items):
+    """Print the top-k of each mode side by side and count the hits per mode and question group."""
+    hits = {(mode, group): 0 for mode in MODES for group in GROUPS.values()}
+    totals = {group: 0 for group in GROUPS.values()}
 
-    for item in QUESTIONS:
-        totals[item["type"]] += 1
-        print(f"\n=== [{item['type']}] {item['question']}")
+    for item in items:
+        group = GROUPS[item.category]
+        totals[group] += 1
+        print(f"\n=== [{group}] {item.id} : {item.question}")
         for mode in MODES:
-            results = search_in_qdrant(item["question"], top_k=TOP_K, mode=mode)
-            found = any(is_expected(r, item["expected"]) for r in results)
-            hits[(mode, item["type"])] += found
+            results = search_in_qdrant(item.question, top_k=TOP_K, mode=mode)
+            found = any(is_expected(r, item.expected_sources) for r in results)
+            hits[(mode, group)] += found
             print(f"  {mode:6} {'✔' if found else '✘'}")
             for r in results:
-                mark = "*" if is_expected(r, item["expected"]) else " "
+                mark = "*" if is_expected(r, item.expected_sources) else " "
                 text = r["text"][:60].replace("\n", " ")
                 print(f"     {mark} {r['score']:7.3f}  {r['metadata']['source_file'][:28]:28} p.{r['metadata']['page'] + 1:<3} {text}")
 
-    print(f"\n=== Hit@{TOP_K} par mode (questions où un chunk attendu est dans le top-{TOP_K})")
+    print(f"\n=== Hit@{TOP_K} par mode (questions où un passage attendu est dans le top-{TOP_K})")
     print(f"  {'mode':6}  {'mots-clés':>10}  {'sens':>6}")
     for mode in MODES:
         print(f"  {mode:6}  {hits[(mode, 'mots-clés')]:>4}/{totals['mots-clés']:<5}  {hits[(mode, 'sens')]:>2}/{totals['sens']}")
 
 
 def check_pitfalls():
-    """The 3 pitfalls of the palier: stemming, very frequent words, score scale."""
+    """The 3 pitfalls of the hybrid search: stemming, very frequent words, score scale."""
     print("\n=== Piège 1 : stemming (même indice = même racine pour BM25)")
     for word in ["inscription", "inscriptions", "inscrit", "inscrire"]:
         print(f"  {word:13} -> {build_sparse_query(word).indices}")
@@ -87,5 +65,9 @@ def check_pitfalls():
 
 
 if __name__ == "__main__":
-    compare_modes()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--split", choices=["dev", "test"], help="Only the dev or test questions (default: all)")
+    args = parser.parse_args()
+
+    compare_modes(load_dataset(split=args.split, categories=GROUPS))
     check_pitfalls()

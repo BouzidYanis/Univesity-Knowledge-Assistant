@@ -1,0 +1,26 @@
+{
+  "suivi-bureau-association": {
+    "question": "Et qui doit composer le bureau ?",
+    "rewritten": "Qui doit composer le bureau d'une association étudiante ?"
+  },
+  "suivi-etudiants-ca": {
+    "question": "Et combien d'étudiants y siègent ?",
+    "rewritten": "Combien d'étudiants siègent dans le conseil d'administration ?"
+  },
+  "suivi-alcool": {
+    "question": "Et l'alcool ?",
+    "rewritten": "Et l'alcool ?"
+  },
+  "suivi-mdp-pirate": {
+    "question": "Et si je pense qu'il a été piraté ?",
+    "rewritten": "Et si je pense que mon mot de passe a été piraté ?"
+  },
+  "suivi-bouteilles": {
+    "question": "Et pour les bouteilles en plastique ?",
+    "rewritten": "Et pour les bouteilles en plastique ?"
+  },
+  "suivi-changement-sujet": {
+    "question": "Quelle est la durée du mandat du président de l'université ?",
+    "rewritten": "Quelle est la durée du mandat du président de l'université ?"
+  }
+}

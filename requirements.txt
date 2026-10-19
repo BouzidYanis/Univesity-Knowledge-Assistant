@@ -1,0 +1,26 @@
+# Ingestion and RAG
+pymupdf==1.28.2
+langchain-community==0.4.2
+langchain-text-splitters==1.1.2
+langchain-huggingface==1.2.2
+sentence-transformers==6.1.0
+# CUDA build for an old GPU (compute capability < 7.5):
+#   pip install torch==2.14.1 --index-url https://download.pytorch.org/whl/cu126
+torch==2.14.1
+fastembed==0.9.0
+qdrant-client==1.19.1
+huggingface_hub==1.33.0
+python-dotenv==1.2.4
+
+# API
+fastapi==0.146.0
+uvicorn[standard]==0.54.0
+pydantic==2.13.5
+httpx==0.28.1
+
+# Interface
+streamlit==1.66.0
+requests==2.34.2
+
+# Tests
+pytest==9.1.1
